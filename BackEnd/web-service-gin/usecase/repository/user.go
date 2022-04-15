@@ -10,8 +10,10 @@ type userDatabase struct {
 
 func NewUserRepository() domain.UserRepository {
 	var users = []domain.User{
-		{Id: "1", Username: "luke92", Password: "mypassword", Email: "lucasjv92@gmail.com", Name: "Lucas", Lastname: "Vargas"},
-		{Id: "2", Username: "henry", Password: "henryPass", Email: "henry@modak.live", Name: "Henry", Lastname: "Canastero"},
+		{Id: "1", Username: "joe", Password: "joepass", Email: "joe@gmail.com", Name: "Joe", Lastname: "Reid"},
+		{Id: "2", Username: "mark", Password: "markPass", Email: "mark@gmail.com", Name: "Mark", Lastname: "Kennedy"},
+		{Id: "3", Username: "jody", Password: "jodyPass", Email: "jody@gmail.com", Name: "Jody", Lastname: "Wagner"},
+		{Id: "4", Username: "rachel", Password: "rachelPass", Email: "rachel@gmail.com", Name: "Rachel", Lastname: "Miles"},
 	}
 	return &userDatabase{users}
 }
