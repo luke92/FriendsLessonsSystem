@@ -1,0 +1,34 @@
+package main
+
+import (
+    "net/http"
+    "github.com/gin-gonic/gin"
+)
+
+//Domain
+type user struct {
+	ID string `json:"id"`
+	Username string `json:"username"`
+	Password string `json:"password"`
+	Email string `json:"email"`
+	Name string `json:"name"`
+	Lastname string `json:"lastname"`
+}
+
+//Data
+var users = []user {
+	{ID: "1", Username: "luke92", Password: "mypassword", Email: "lucasjv92@gmail.com", Name: "Lucas", Lastname: "Vargas"},
+	{ID: "2", Username: "henry", Password: "henryPass", Email: "henry@modak.live", Name: "Henry", Lastname: "Canastero"},
+}
+
+//Handlers
+func getUsers(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, users)
+}
+
+func main () {
+	router := gin.Default()
+	router.GET("/users", getUsers)
+	router.Run("localhost:8080")
+}
+
