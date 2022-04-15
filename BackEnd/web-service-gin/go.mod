@@ -1,4 +1,4 @@
-module example/web-service-gin
+module github.com/luke92/FriendsLessonsSystem
 
 go 1.18
 

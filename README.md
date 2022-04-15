@@ -12,7 +12,7 @@ Service that allows a user to know for what courses their friends have taken any
 - Make a GET REQUEST in http://localhost:8080/users in POSTMAN or curl
 
 ### Endpoints
-- Get All Users `/users`
-- Get User by Id `/users/{id}`
+- Get All Users `/api/users`
+- Get User by Id `/api/users/{id}`
 
 ## FrontEnd
