@@ -9,7 +9,7 @@ Service that allows a user to know for what courses their friends have taken any
 ### How to Run
 - Run `go get .`
 - Run `go run .`
-- Make a GET REQUEST in http://localhost:8080/users in POSTMAN or curl
+- Make a GET REQUEST in http://localhost:8080/api/users in POSTMAN or curl
 
 ### Endpoints
 - Get All Users `/api/users`
