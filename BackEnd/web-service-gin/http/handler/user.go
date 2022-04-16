@@ -2,6 +2,7 @@ package handler
 
 import (
 	"net/http"
+
 	"github.com/gin-gonic/gin"
 	services "github.com/luke92/FriendsLessonsSystem/usecase/interface"
 )
@@ -16,16 +17,7 @@ func NewUserHandler(usecase services.UserUseCase) *UserHandler {
 	}
 }
 
-// FindAll godoc
-// @summary Get all users
-// @description Get all users
-// @tags users
-// @security ApiKeyAuth
-// @id GetAll
-// @produce json
-// @Router /api/users [get]
-// @response 200 {object} []Response "OK"
-func (cr *UserHandler) GetAll(c *gin.Context) {
+func (cr *UserHandler) GetAllUsers(c *gin.Context) {
 	users, err := cr.userUseCase.GetAll()
 
 	if err != nil {
@@ -35,7 +27,17 @@ func (cr *UserHandler) GetAll(c *gin.Context) {
 	}
 }
 
-func (cr *UserHandler) GetByID(c *gin.Context) {
+func (cr *UserHandler) GetAllFriendships(c *gin.Context) {
+	friendships, err := cr.userUseCase.GetAllFriendships()
+
+	if err != nil {
+		c.AbortWithStatus(http.StatusNotFound)
+	} else {
+		c.IndentedJSON(http.StatusOK, friendships)
+	}
+}
+
+func (cr *UserHandler) GetUserByID(c *gin.Context) {
 	id := c.Param("id")
 
 	user, err := cr.userUseCase.GetByID(id)
@@ -44,5 +46,29 @@ func (cr *UserHandler) GetByID(c *gin.Context) {
 		c.AbortWithStatus(http.StatusNotFound)
 	} else {
 		c.IndentedJSON(http.StatusOK, user)
+	}
+}
+
+func (cr *UserHandler) GetFriendsByUserID(c *gin.Context) {
+	id := c.Param("id")
+
+	friends, err := cr.userUseCase.GetFriendsByID(id)
+
+	if err != nil {
+		c.AbortWithStatus(http.StatusNotFound)
+	} else {
+		c.IndentedJSON(http.StatusOK, friends)
+	}
+}
+
+func (cr *UserHandler) GetLessonsByUserID(c *gin.Context) {
+	id := c.Param("id")
+
+	lessons, err := cr.userUseCase.GetLessonsByID(id)
+
+	if err != nil {
+		c.AbortWithStatus(http.StatusNotFound)
+	} else {
+		c.IndentedJSON(http.StatusOK, lessons)
 	}
 }

@@ -14,5 +14,7 @@ Service that allows a user to know for what courses their friends have taken any
 ### Endpoints
 - Get All Users `/api/users`
 - Get User by Id `/api/users/{id}`
-
+- Get All Friendships `/api/friendships`
+- Get All Friends by User Id `/api/users/{id}/friends`
+- Get All Lessons by User Id `/api/users/{id}/lessons`
 ## FrontEnd

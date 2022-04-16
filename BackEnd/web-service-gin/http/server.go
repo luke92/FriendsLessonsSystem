@@ -13,8 +13,11 @@ func NewServerHTTP(userHandler *handler.UserHandler) *ServerHTTP {
 	engine := gin.New()
 
 	api := engine.Group("/api")
-	api.GET("users", userHandler.GetAll)
-	api.GET("users/:id", userHandler.GetByID)
+	api.GET("users", userHandler.GetAllUsers)
+	api.GET("friendships", userHandler.GetAllFriendships)
+	api.GET("users/:id", userHandler.GetUserByID)
+	api.GET("users/:id/friends", userHandler.GetFriendsByUserID)
+	api.GET("users/:id/lessons", userHandler.GetLessonsByUserID)
 
 	return &ServerHTTP{engine: engine}
 }

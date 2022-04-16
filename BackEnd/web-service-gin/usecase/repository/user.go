@@ -1,7 +1,13 @@
 package repository
 
 import (
+	"errors"
+
 	domain "github.com/luke92/FriendsLessonsSystem/domain"
+)
+
+var (
+	ErrorNotFound = errors.New("User not found")
 )
 
 type userDatabase struct {
@@ -43,9 +49,9 @@ func (c *userDatabase) GetByID(id string) (domain.User, error) {
 	for i := range c.users {
 		if c.users[i].Id == id {
 			user = c.users[i]
-			break
+			return user, nil
 		}
 	}
 
-	return user, nil
+	return user, ErrorNotFound
 }
