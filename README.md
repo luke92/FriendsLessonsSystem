@@ -1,12 +1,10 @@
 # FriendsLessonsSystem
 Service that allows a user to know for what courses their friends have taken any lesson
-
 ## BackEnd (GO with GIN Framework)
-
 ### Requisites
 - Install Go 1.18
 
-### How to Run
+### How to Run (BackEnd/web-service-gin)
 - Run `go get .`
 - Run `go run .`
 - Make a GET REQUEST in http://localhost:8080/api/users in POSTMAN or curl
@@ -17,4 +15,11 @@ Service that allows a user to know for what courses their friends have taken any
 - Get All Friendships `/api/friendships`
 - Get All Friends by User Id `/api/users/{id}/friends`
 - Get All Lessons by User Id `/api/users/{id}/lessons`
-## FrontEnd
+## FrontEnd (Angular)
+### Requisites
+- NodeJS
+- Angular 13
+
+### How to Run (FrontEnd/friends)
+- Run `npm install`
+- Run `ng serve --o`
