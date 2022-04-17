@@ -1,0 +1,13 @@
+{
+    "name": "Start on Heroku: Go",
+    "description": "Friends Lessons System API Started Example App",
+    "keywords": [
+      "friendslessonssystemapi",
+      "go",
+      "sample",
+      "example"
+    ],
+    "website": "https://github.com/luke92/FriendsLessonsSystem",
+    "repository": "https://github.com/luke92/FriendsLessonsSystem"
+  }
+  

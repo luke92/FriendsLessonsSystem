@@ -24,8 +24,8 @@ Service that allows a user to know for what courses their friends have taken any
 - Run `npm install`
 - Run `ng serve --o`
 - Start in http://localhost:4200
-- User: admin
-- Password: admin123
+- User: `admin`
+- Password: `admin123`
 
 ### How to configure Endpoint API
 - Change `target` in `proxy.conf.json`
