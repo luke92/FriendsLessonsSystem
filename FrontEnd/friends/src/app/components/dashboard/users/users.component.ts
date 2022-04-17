@@ -2,27 +2,34 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  listUsers: User[] = [
-    {id: "1", fullname: 'Joe', username: "joe", email: "joe@gmail.com"},
-    {id: "2", fullname: 'Joe', username: "joe", email: "joe@gmail.com"},
-  ];
+  
+  listUsers: User[] = [];
 
   displayedColumns: string[] = ['id', 'fullname', 'username', 'email', 'actions'];
-  dataSource = new MatTableDataSource(this.listUsers);
+  //Cuando tiene el ! es un operador de not null assertion
+  dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() { }
+  constructor(private _userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    this.listUsers = this._userService.getUsers();
+    this.dataSource = new MatTableDataSource(this.listUsers);
   }
 
   ngAfterViewInit() {
@@ -33,6 +40,11 @@ export class UsersComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  userDetails(id: string) {
+    console.log(id);
+    this.router.navigate(['/dashboard/user-details', id]);
   }
 
 }

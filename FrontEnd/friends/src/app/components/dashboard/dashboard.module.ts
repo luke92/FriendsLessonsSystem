@@ -8,6 +8,7 @@ import { InitComponent } from './init/init.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
 import { FriendshipsComponent } from './friendships/friendships.component';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FriendshipsComponent } from './friendships/friendships.component';
     InitComponent,
     NavbarComponent,
     UsersComponent,
-    FriendshipsComponent
+    FriendshipsComponent,
+    UserDetailsComponent
   ],
   imports: [
     CommonModule,

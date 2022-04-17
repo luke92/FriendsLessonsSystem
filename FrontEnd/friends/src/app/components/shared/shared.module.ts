@@ -13,6 +13,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
 
 //Modulos
 import { ReactiveFormsModule } from '@angular/forms';
@@ -34,7 +37,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatCardModule,
+    MatGridListModule,
+    MatListModule
   ],
   exports: [
     MatFormFieldModule,
@@ -49,7 +55,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatCardModule,
+    MatGridListModule,
+    MatListModule
   ]
 })
 export class SharedModule { }
