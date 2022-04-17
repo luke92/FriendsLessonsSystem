@@ -23,3 +23,6 @@ Service that allows a user to know for what courses their friends have taken any
 ### How to Run (FrontEnd/friends)
 - Run `npm install`
 - Run `ng serve --o`
+
+### How to configure Endpoint API
+- Change `target` in `proxy.conf.json`
