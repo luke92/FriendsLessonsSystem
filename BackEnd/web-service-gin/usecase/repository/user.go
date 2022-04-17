@@ -27,6 +27,8 @@ func NewUserRepository() domain.UserRepository {
 	user1 := domain.User{Id: "1", Username: "joe", Password: "joepass", Email: "joe@gmail.com", Name: "Joe", Lastname: "Reid", Friends: []domain.User{user4}}
 	user5 := domain.User{Id: "5", Username: "luke", Password: "lukepass", Email: "luke@gmail.com", Name: "Luke", Lastname: "Vargas"}
 
+	user4.Friends = []domain.User{user1}
+
 	var users = []domain.User{
 		user1,
 		user2,
