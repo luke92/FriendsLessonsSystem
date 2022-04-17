@@ -13,8 +13,9 @@ import { UserService } from 'src/app/services/user.service';
 export class UsersComponent implements OnInit {
   
   listUsers: User[] = [];
+  private retrivedata: Array<any> = [];
 
-  displayedColumns: string[] = ['id', 'fullname', 'username', 'email', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'lastname', 'username', 'email', 'actions'];
   //Cuando tiene el ! es un operador de not null assertion
   dataSource = new MatTableDataSource<any>();
 
@@ -28,7 +29,19 @@ export class UsersComponent implements OnInit {
   }
 
   loadUsers() {
-    this.listUsers = this._userService.getUsers();
+    this._userService.getUsers().subscribe(data => {
+      this.retrivedata = data;
+      for(let entry of this.retrivedata) {
+        let user = {
+          id: entry.id,
+          name: entry.name,
+          lastname: entry.lastname,
+          username: entry.username,
+          email: entry.email
+        };
+        this.listUsers.push(user);
+      }
+    });
     this.dataSource = new MatTableDataSource(this.listUsers);
   }
 

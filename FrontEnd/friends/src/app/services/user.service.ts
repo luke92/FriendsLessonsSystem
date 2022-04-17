@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 
 @Injectable({
@@ -7,14 +9,17 @@ import { User } from '../interfaces/user';
 export class UserService {
 
   listUsers: User[] = [
-    {id: "1", fullname: 'Joe', username: "joe", email: "joe@gmail.com"},
-    {id: "2", fullname: 'Joe', username: "joe", email: "joe@gmail.com"},
+    {id: "1", name: 'Joe', lastname: 'Wilson', username: "joe", email: "joe@gmail.com"},
+    {id: "2", name: 'Joe', lastname: 'Miller', username: "joe", email: "joe@gmail.com"},
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getUsers() {
-    //Devuelve una copia del array
-    return this.listUsers.slice();
+  getUsers(): Observable<any> {
+    const url = '/api/users';
+    //Devuelve una copia del array MOCK
+    //return this.listUsers.slice();
+    //API
+    return this.http.get(url);
   }
 }
