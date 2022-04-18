@@ -17,6 +17,6 @@ func main() {
 		log.Fatal("cannot start server: ", diErr)
 	} else {
 		log.Println("listening on", port)
-		server.Start()
+		server.Start(port)
 	}
 }

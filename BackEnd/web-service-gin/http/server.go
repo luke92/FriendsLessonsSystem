@@ -22,6 +22,6 @@ func NewServerHTTP(userHandler *handler.UserHandler) *ServerHTTP {
 	return &ServerHTTP{engine: engine}
 }
 
-func (sh *ServerHTTP) Start() {
-	sh.engine.Run(":8080")
+func (sh *ServerHTTP) Start(port string) {
+	sh.engine.Run(":" + port)
 }
