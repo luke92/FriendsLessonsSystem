@@ -2,7 +2,7 @@
 Service that allows a user to know for what courses their friends have taken any lesson
 ## BackEnd (GO with GIN Framework)
 ### Requisites
-- Install Go 1.18
+- Install Go 1.17
 
 ### How to Run (BackEnd/web-service-gin)
 - Run `go get .`
