@@ -1,1 +1,1 @@
-web: BackEnd/web-service-gin/bin/friendslessonssystemapi
+web: gunicorn --chdir ./BackEnd/web-service-gin bin/friendslessonssystemapi
