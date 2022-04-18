@@ -33,10 +33,14 @@
 -  If you have the folder of project in a subfolder like me, Configure PROJECT_PATH=BackEnd/web-service-gin
 - PORT=80
 
+![image](https://user-images.githubusercontent.com/1220217/163741042-91daea39-7994-4260-a747-ff3c99c7b91d.png)
+
+
 ### Deploying
 - Run `go build -o bin/friendslessonssystemapi -v`
 - Run `git push heroku main`
 - Run `heroku logs --tail`
+![image](https://user-images.githubusercontent.com/1220217/163741121-2532becc-6c4a-47dd-92c9-7d466ed0811c.png)
 
 ## DEMO
 - http://friendslessonssystemapi.herokuapp.com/api/users
