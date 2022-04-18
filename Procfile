@@ -1,1 +1,0 @@
-web: gunicorn --chdir ./BackEnd/web-service-gin bin/friendslessonssystemapi
