@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
+import { ConfigService } from './config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,19 @@ export class UserService {
     "Spanish"
   ];
 
-  constructor(private http: HttpClient) { }
+  baseUrl: string = '';
+
+  constructor(private http: HttpClient, private _configService: ConfigService) {
+    this._configService.loadConfig().subscribe(data => {
+      this.baseUrl = data.apiUrl;
+    });
+    if(this.baseUrl.indexOf('://localhost') >= 0) {
+      this.baseUrl = '';
+    }
+   }
 
   getUsers(): Observable<any> {
-    const url = '/api/users';
+    const url = this.baseUrl + '/api/users';
     //Devuelve una copia del array MOCK
     //return this.listUsers.slice();
     //API
@@ -35,7 +45,7 @@ export class UserService {
   }
 
   getFriendships(): Observable<any> {
-    const url = '/api/friendships';
+    const url = this.baseUrl + '/api/friendships';
     //Devuelve una copia del array MOCK
     //return this.listFriendships.slice();
     //API
@@ -43,7 +53,7 @@ export class UserService {
   }
 
   getLessonsByUserId(id: string): Observable<any> {
-    const url = '/api/users/' + id + '/lessons';
+    const url = this.baseUrl + '/api/users/' + id + '/lessons';
     //Devuelve una copia del array MOCK
     //return this.listFriendships.slice();
     //API
@@ -51,7 +61,7 @@ export class UserService {
   }
 
   getFriendsByUserId(id: string): Observable<any> {
-    const url = '/api/users/' + id + '/friends';
+    const url = this.baseUrl + '/api/users/' + id + '/friends';
     //Devuelve una copia del array MOCK
     //return this.listFriendships.slice();
     //API

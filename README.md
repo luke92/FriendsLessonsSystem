@@ -27,5 +27,5 @@ Service that allows a user to know for what courses their friends have taken any
 - User: `admin`
 - Password: `admin123`
 
-### How to configure Endpoint API
+### How to configure Endpoint API for development
 - Change `target` in `proxy.conf.json`
