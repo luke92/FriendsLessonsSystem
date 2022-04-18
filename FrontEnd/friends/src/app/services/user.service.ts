@@ -31,9 +31,6 @@ export class UserService {
     this._configService.loadConfig().subscribe(data => {
       this.baseUrl = data.apiUrl;
     });
-    if(this.baseUrl.indexOf('://localhost') >= 0) {
-      this.baseUrl = '';
-    }
    }
 
   getUsers(): Observable<any> {

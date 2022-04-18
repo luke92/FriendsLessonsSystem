@@ -22,10 +22,12 @@ Service that allows a user to know for what courses their friends have taken any
 
 ### How to Run (FrontEnd/friends)
 - Run `npm install`
-- Run `ng serve --o`
+- Run `ng serve --o` for development
+- Run `ng serve` for testing or production
 - Start in http://localhost:4200
 - User: `admin`
 - Password: `admin123`
 
 ### How to configure Endpoint API for development
-- Change `target` in `proxy.conf.json`
+- Change `target` in `proxy.conf.json` if you use `ng serve --o` (Comunicate localhost with localhost)
+- Change `config.json` if you use `ng serve`
