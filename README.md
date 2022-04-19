@@ -15,6 +15,10 @@ Service that allows a user to know for what courses their friends have taken any
 - Get All Friendships `/api/friendships`
 - Get All Friends by User Id `/api/users/{id}/friends`
 - Get All Lessons by User Id `/api/users/{id}/lessons`
+
+### DEMO
+https://friendslessonssystemapi.herokuapp.com/api/users
+
 ## FrontEnd (Angular)
 ### Requisites
 - NodeJS
@@ -31,3 +35,6 @@ Service that allows a user to know for what courses their friends have taken any
 ### How to configure Endpoint API for development
 - Change `target` in `proxy.conf.json` if you use `ng serve --o` (Comunicate localhost with localhost)
 - Change `config.json` if you use `ng serve`
+
+### DEMO
+https://friendslessonssystem.netlify.app/
