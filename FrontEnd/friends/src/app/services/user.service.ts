@@ -28,9 +28,7 @@ export class UserService {
   baseUrl: string = '';
 
   constructor(private http: HttpClient, private _configService: ConfigService) {
-    this._configService.loadConfig().subscribe(data => {
-      this.baseUrl = data.apiUrl;
-    });
+      this.baseUrl = this._configService.settings.apiUrl;
    }
 
   getUsers(): Observable<any> {

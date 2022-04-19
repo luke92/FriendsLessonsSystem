@@ -10,9 +10,9 @@ import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from './components/shared/shared.module';
 import { ConfigService } from './services/config.service';
 
-export const configFactory = (configService: ConfigService) => {
-  return () => configService.loadConfig();
-};
+export function init_app(configService: ConfigService) {
+    return () => configService.loadConfig();
+}
 
 @NgModule({
   declarations: [
@@ -26,9 +26,10 @@ export const configFactory = (configService: ConfigService) => {
     SharedModule
   ],
   providers: [
+    ConfigService,
     {
       provide: APP_INITIALIZER,
-      useFactory: configFactory,
+      useFactory: init_app,
       deps: [ConfigService],
       multi: true
     }
